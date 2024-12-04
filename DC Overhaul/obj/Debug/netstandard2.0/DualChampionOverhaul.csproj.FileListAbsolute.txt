@@ -1,0 +1,10 @@
+c:\Users\quadl\Desktop\DC Overhaul\obj\Debug\netstandard2.0\DualChampionOverhaul.GeneratedMSBuildEditorConfig.editorconfig
+c:\Users\quadl\Desktop\DC Overhaul\obj\Debug\netstandard2.0\DualChampionOverhaul.AssemblyInfoInputs.cache
+c:\Users\quadl\Desktop\DC Overhaul\obj\Debug\netstandard2.0\DualChampionOverhaul.AssemblyInfo.cs
+c:\Users\quadl\Desktop\DC Overhaul\obj\Debug\netstandard2.0\DualChampionOverhaul.csproj.CoreCompileInputs.cache
+C:\Users\quadl\Desktop\DC Overhaul\bin\Debug\netstandard2.0\DualChampionOverhaul.deps.json
+c:\Users\quadl\Desktop\DC Overhaul\bin\Debug\netstandard2.0\DualChampionOverhaul.dll
+c:\Users\quadl\Desktop\DC Overhaul\bin\Debug\netstandard2.0\DualChampionOverhaul.pdb
+c:\Users\quadl\Desktop\DC Overhaul\obj\Debug\netstandard2.0\DualChampionOverhaul.dll
+c:\Users\quadl\Desktop\DC Overhaul\obj\Debug\netstandard2.0\DualChampionOverhaul.pdb
+c:\Users\quadl\Desktop\DC Overhaul\obj\Debug\netstandard2.0\DualChampionOverhaul.csproj.AssemblyReference.cache
