@@ -11,10 +11,10 @@ namespace MonsterTrainModdingTemplate.MonsterCards
     /// <summary>
     /// Minimal example of how to create a Monster Card with an Essence.
     /// </summary>
-    class ApexFledglingImp
+    class FightingSteward
     {
-        public static readonly string ID = TestPlugin.CLANID + "_ApexFledglingImpCard";
-        public static readonly string CharID = TestPlugin.CLANID + "_ApexFledglingImpCharacter";
+        public static readonly string ID = TestPlugin.GUID + "_FightingStewardCard";
+        public static readonly string CharID = TestPlugin.GUID + "_FightingStewardCharacter";
 
        
 
@@ -100,7 +100,7 @@ namespace MonsterTrainModdingTemplate.MonsterCards
                                 },
                          new CharacterTriggerDataBuilder
                                 {
-                               TriggerID = TestPlugin.GUID + "_ApexFledgingImpResolveTrigger", 
+                               TriggerID = TestPlugin.GUID + "_ApexFledgingImpTrigger", 
                                Trigger = CharacterTriggerData.Trigger.PostCombat,
                                Description = "Apply <nobr>[rage] [effect0.status0.power] to friendly units.</nobr>",
                                EffectBuilders =
@@ -122,43 +122,8 @@ namespace MonsterTrainModdingTemplate.MonsterCards
                                         
                                        }
                                     }
-                                
-                                },
-
-                            new CharacterTriggerDataBuilder
-                            {
-                               TriggerID = TestPlugin.GUID + "_ApexFledgingImpEvolveTrigger", 
-                               Trigger = Evolve.Trigger,
-                               Description = "Evolve into Fledgling Imp Lord",
-                               EffectBuilders =
-                               {
-                                new CardEffectDataBuilder
-                                {
-                                     EffectStateType = typeof(CardEffectSpawnMonster),
-                                     TargetMode = TargetMode.Self,
-                                     TargetTeamType = Team.Type.None,
-                                     ParamCharacterData = CustomCharacterManager.GetCharacterDataByID(FledglingImpLord.CharID)
-                                     
-                                },
-                                new CardEffectDataBuilder
-                                {
-                                    EffectStateType = typeof(CardEffectSacrifice),
-                                     TargetMode = TargetMode.Self,
-                                     TargetTeamType = Team.Type.None,
-                                     ParamBool = true,
-                                     HideTooltip = true,
+                            
                                 }
-                               }
-
-
-                            }
-
-                                      
-
-
-
-
-
                             },
                             UnitSynthesisBuilder = new CardUpgradeDataBuilder
                             {

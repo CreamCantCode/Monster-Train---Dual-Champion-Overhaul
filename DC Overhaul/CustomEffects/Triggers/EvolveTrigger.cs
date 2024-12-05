@@ -21,7 +21,7 @@ namespace CustomEffects
   
       public static CharacterTriggerData.Trigger Trigger;
        
-      public const string TriggerID = "Evolve_Trigger";
+      public const string TriggerID = "Evolve";
 
       public static CharacterTriggerData Data;
 
@@ -30,7 +30,7 @@ namespace CustomEffects
             {
                 TriggerID = TriggerID,
                 Trigger = Trigger,
-                AdditionalTextOnTrigger = "ball trigger"
+                AdditionalTextOnTrigger = "trigger"
 
             }.Build();  
 

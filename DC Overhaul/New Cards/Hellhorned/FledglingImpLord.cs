@@ -1,6 +1,7 @@
 ﻿
 using CustomEffects;
 using HarmonyLib;
+using MonsterTrainModdingTemplate.ModifyExistingContent;
 using Trainworks.BuildersV2;
 using Trainworks.ConstantsV2;
 using Trainworks.Managers;
@@ -11,10 +12,10 @@ namespace MonsterTrainModdingTemplate.MonsterCards
     /// <summary>
     /// Minimal example of how to create a Monster Card with an Essence.
     /// </summary>
-    class ApexFledglingImp
+    class FledglingImpLord
     {
-        public static readonly string ID = TestPlugin.CLANID + "_ApexFledglingImpCard";
-        public static readonly string CharID = TestPlugin.CLANID + "_ApexFledglingImpCharacter";
+        public static readonly string ID = TestPlugin.CLANID + "_FledglingImpLordCard";
+        public static readonly string CharID = TestPlugin.CLANID + "_FledglingImpLordCharacter";
 
        
 
@@ -26,10 +27,6 @@ namespace MonsterTrainModdingTemplate.MonsterCards
 
 
 
-        var ApexImpCardID = VanillaCardIDs.ApexImp;
-        var ApexImpCardData = CustomCardManager.GetCardDataByID(ApexImpCardID);
-        var ApexImpCharacterID = VanillaCharacterIDs.ApexImp;
-        var ApexImpCharacterData = CustomCharacterManager.GetCharacterDataByID(ApexImpCharacterID);
         
         
 
@@ -38,13 +35,13 @@ namespace MonsterTrainModdingTemplate.MonsterCards
             new CardDataBuilder
             {
                 CardID = ID,
-                Name = "Apex Fledgling Imp",
-                Cost = 1,
+                Name = "Fledgling Imp Lord",
+                Cost = 2,
                 CardType = CardType.Monster,
                 Rarity = CollectableRarity.Rare,
                 TargetsRoom = true,
                 Targetless = false,
-                CardArtPrefabVariantRef = (AssetReferenceGameObject)AccessTools.Field(typeof(CardData), "cardArtPrefabVariantRef").GetValue(ApexImpCardData),
+                CardArtPrefabVariantRef = (AssetReferenceGameObject)AccessTools.Field(typeof(CardData), "cardArtPrefabVariantRef").GetValue(CustomCardManager.GetCardDataByID(HornedWarrior.ID)),
                 ClanID = VanillaClanIDs.Hellhorned,
                 CardPoolIDs = { VanillaCardPoolIDs.HellhornedBanner, VanillaCardPoolIDs.UnitsAllBanner },
                 EffectBuilders =
@@ -56,11 +53,11 @@ namespace MonsterTrainModdingTemplate.MonsterCards
                         ParamCharacterDataBuilder = new CharacterDataBuilder
                         {
                             CharacterID = CharID,
-                            Name = "Apex Fledgling Imp",
+                            Name = "Fledgling Imp Lord",
                             Size = 2,
-                            Health = 5,
-                            AttackDamage = 5,
-                            CharacterPrefabVariantRef = (AssetReferenceGameObject)AccessTools.Field(typeof(CharacterData), "characterPrefabVariantRef").GetValue(ApexImpCharacterData),
+                            Health = 10,
+                            AttackDamage = 10,
+                            CharacterPrefabVariantRef = (AssetReferenceGameObject)AccessTools.Field(typeof(CharacterData), "characterPrefabVariantRef").GetValue(CustomCharacterManager.GetCharacterDataByID(HornedWarrior.CharID)),
                             SubtypeKeys = { VanillaSubtypeIDs.Demon,VanillaSubtypeIDs.Imp,VanillaSubtypeIDs.Chosen },
                             StartingStatusEffects = 
                             {
@@ -75,7 +72,7 @@ namespace MonsterTrainModdingTemplate.MonsterCards
                             {
                                 new CharacterTriggerDataBuilder
                                 {
-                                    TriggerID = TestPlugin.GUID + "_ApexFledgingImpSpawnTrigger", 
+                                    TriggerID = TestPlugin.GUID + "_FledgingImpLordSpawnTrigger", 
                                     Trigger = CharacterTriggerData.Trigger.OnSpawn,
                                     Description = "Apply <nobr>[rage] [effect0.status0.power] to friendly units.</nobr>",
                                     EffectBuilders =
@@ -100,7 +97,7 @@ namespace MonsterTrainModdingTemplate.MonsterCards
                                 },
                          new CharacterTriggerDataBuilder
                                 {
-                               TriggerID = TestPlugin.GUID + "_ApexFledgingImpResolveTrigger", 
+                               TriggerID = TestPlugin.GUID + "_FledgingImpLordResolveTrigger", 
                                Trigger = CharacterTriggerData.Trigger.PostCombat,
                                Description = "Apply <nobr>[rage] [effect0.status0.power] to friendly units.</nobr>",
                                EffectBuilders =
@@ -116,53 +113,18 @@ namespace MonsterTrainModdingTemplate.MonsterCards
                                         new StatusEffectStackData
                                         {
                                             statusId = VanillaStatusEffectIDs.Rage,
-                                            count = 2
+                                            count = 5
                                         }
                                        }
                                         
                                        }
                                     }
-                                
-                                },
-
-                            new CharacterTriggerDataBuilder
-                            {
-                               TriggerID = TestPlugin.GUID + "_ApexFledgingImpEvolveTrigger", 
-                               Trigger = Evolve.Trigger,
-                               Description = "Evolve into Fledgling Imp Lord",
-                               EffectBuilders =
-                               {
-                                new CardEffectDataBuilder
-                                {
-                                     EffectStateType = typeof(CardEffectSpawnMonster),
-                                     TargetMode = TargetMode.Self,
-                                     TargetTeamType = Team.Type.None,
-                                     ParamCharacterData = CustomCharacterManager.GetCharacterDataByID(FledglingImpLord.CharID)
-                                     
-                                },
-                                new CardEffectDataBuilder
-                                {
-                                    EffectStateType = typeof(CardEffectSacrifice),
-                                     TargetMode = TargetMode.Self,
-                                     TargetTeamType = Team.Type.None,
-                                     ParamBool = true,
-                                     HideTooltip = true,
+                            
                                 }
-                               }
-
-
-                            }
-
-                                      
-
-
-
-
-
                             },
                             UnitSynthesisBuilder = new CardUpgradeDataBuilder
                             {
-                                UpgradeID = "FledglingApexImpSynth",
+                                UpgradeID = "FledglingImpLordSynth",
                                 UpgradeDescription = "+10[attack] +10[health]",
                                 HideUpgradeIconOnCard = true,
                                 UseUpgradeHighlightTextTags = true,

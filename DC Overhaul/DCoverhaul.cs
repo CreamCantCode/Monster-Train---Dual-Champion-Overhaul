@@ -43,13 +43,15 @@ namespace MonsterTrainModdingTemplate
             }*/
 
             // Or if you prefer to call them all manually.
-
+             MoltData.BuildAndRegister();
             // Start with the clan.
+         
       
             // Then Starter cards if using custom made cards.
+
            ImpQuartetCardData.BuildAndRegister();
            ApexFledglingImp.BuildAndRegister();
-           MoltData.BuildAndRegister();
+           FledglingImpLord.BuildAndRegister();
            
             // Then Champions
             // Subtypes
